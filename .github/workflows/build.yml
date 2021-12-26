@@ -24,5 +24,7 @@ jobs:
         uses: workflow/nix-shell-action@v2
         with:
           packages: nixos-generators
-          script: ./build.sh
+          script: |
+            chmod +x build.sh
+            ./build.sh
 
