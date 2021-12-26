@@ -20,7 +20,7 @@ jobs:
           install_url: https://releases.nixos.org/nix/nix-2.3.7/install
 
       - name: Build inside nix-shell
-        uses: workflow/nix-shell-action@v3
+        uses: workflow/nix-shell-action@v2
         with:
           packages: nixos-generators
           script: ./build.sh
