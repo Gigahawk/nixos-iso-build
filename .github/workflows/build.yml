@@ -8,6 +8,11 @@ on:
 jobs:
   build:
     runs-on: ubuntu-18.04
+    strategy:
+      matrix:
+        iso_name: [
+          thinkpad_gnome.iso
+        ]
 
     steps:
       - uses: actions/checkout@v2
@@ -24,7 +29,13 @@ jobs:
         uses: workflow/nix-shell-action@v2
         with:
           packages: nixos-generators
-          script: |
-            chmod +x build.sh
-            ./build.sh
+          script: ./build.sh ${{ matrix.iso_name }}
+
+      - name: Upload iso
+        uses: actions/upload-artifact@v2
+        with:
+          name: ${{ matrix.iso_name }}
+          path: dist/${{ matrix.iso_name }}
+
+
 
