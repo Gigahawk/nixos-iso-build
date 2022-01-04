@@ -11,7 +11,8 @@ jobs:
     strategy:
       matrix:
         iso_name: [
-          thinkpad_gnome.iso
+          thinkpad_gnome.iso,
+          thinkpad_tab_gnome.iso
         ]
 
     steps:
