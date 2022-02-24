@@ -2,6 +2,14 @@
 {
   nixpkgs.config.allowUnfree = true;
 
+  # Enable flakes
+  nix = {
+    package = pkgs.nixUnstable;
+    extraOptions = ''
+      experimental-features = nix-command flakes
+    '';
+  };
+
   services.sshd.enable = true;
   services.nginx.enable = true;
 
