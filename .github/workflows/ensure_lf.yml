@@ -1,0 +1,12 @@
+on:
+  pull_request:
+
+jobs:
+  ensure_no_crlf:
+    runs-on: ubuntu-latest
+    name: Check files for CRLF
+    steps:
+    - name: Validate files
+      uses: microsoftgraph/eol-blocker@v1.0.8
+      with:
+        repoToken: ${{ secrets.GITHUB_TOKEN }}
