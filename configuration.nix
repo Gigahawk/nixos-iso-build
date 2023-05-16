@@ -24,7 +24,11 @@
   services.sshd.enable = true;
 
   services.xserver.enable = true;
-  services.xserver.displayManager.sddm.enable = true;
+  services.xserver.displayManager.sddm = {
+    enable = true;
+    autoLogin.enable = true;
+    autoLogin.user = "root";
+  };
   services.xserver.desktopManager.plasma5.enable = true;
 
   systemd.targets = {
